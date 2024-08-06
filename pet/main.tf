@@ -26,3 +26,7 @@ output "name" {
 output "trash" {
   value = jsondecode(random_pet.this.id)
 }
+
+output "more-trash" {
+  value = jsondecode(random_pet.this.id)
+}
