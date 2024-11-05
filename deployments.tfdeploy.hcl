@@ -14,9 +14,3 @@ deployment "complex" {
     instances        = 3
   }
 }
-
-deployment "broken" {
-  variables = {
-    instances = 1
-  }
-}
