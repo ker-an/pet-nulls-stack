@@ -3,7 +3,7 @@
 
 deployment "simple" {
   inputs = {
-    prefix           = "smple"
+    prefix           = "simple"
     instances        = 1
   }
 }
@@ -12,5 +12,11 @@ deployment "complex" {
   inputs = {
     prefix           = "complex"
     instances        = 3
+  }
+}
+
+deployment "broken" {
+  variables = {
+    instances = 1
   }
 }
