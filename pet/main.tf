@@ -22,7 +22,3 @@ resource "random_pet" "this" {
 output "name" {
   value = random_pet.this.id
 }
-
-output "trash" {
-  value = jsondecode(random_pet.this.id)
-}
