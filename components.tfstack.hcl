@@ -24,17 +24,17 @@ required_providers {
 provider "random" "this" {}
 provider "null" "this" {}
 
-component "pet" {
-  source = "./pet"
+# component "pet" {
+#   source = "./pet"
 
-  inputs = {
-    prefix = var.prefix
-  }
+#   inputs = {
+#     prefix = var.prefix
+#   }
 
-  providers = {
-    random = provider.random.this
-  }
-}
+#   providers = {
+#     random = provider.random.this
+#   }
+# }
 
 removed {
   source = "./pet"
