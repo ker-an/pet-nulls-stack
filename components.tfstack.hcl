@@ -48,3 +48,16 @@ component "nulls" {
     null = provider.null.this
   }
 }
+
+component "nulls-duplicate" {
+  source = "./nulls"
+
+  inputs = {
+    pet       = component.pet.name
+    instances = var.instances
+  }
+
+  providers = {
+    null = provider.null.this
+  }
+}
