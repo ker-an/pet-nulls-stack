@@ -36,6 +36,15 @@ component "pet" {
   }
 }
 
+removed {
+  source = "./pet"
+
+  from = component.pet
+  providers = {
+    random = provider.random.this
+  }
+}
+
 component "nulls" {
   source = "./nulls"
 
@@ -57,15 +66,6 @@ component "nulls-duplicate" {
     instances = var.instances
   }
 
-  providers = {
-    null = provider.null.this
-  }
-}
-
-removed {
-  source = "./nulls"
-
-  from = component.nulls-duplicate
   providers = {
     null = provider.null.this
   }
