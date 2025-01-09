@@ -24,22 +24,13 @@ required_providers {
 provider "random" "this" {}
 provider "null" "this" {}
 
-# component "pet" {
-#   source = "./pet"
-
-#   inputs = {
-#     prefix = var.prefix
-#   }
-
-#   providers = {
-#     random = provider.random.this
-#   }
-# }
-
-removed {
+component "pet" {
   source = "./pet"
 
-  from = component.pet
+  inputs = {
+    prefix = var.prefix
+  }
+
   providers = {
     random = provider.random.this
   }
@@ -53,6 +44,15 @@ component "nulls" {
     instances = var.instances
   }
 
+  providers = {
+    null = provider.null.this
+  }
+}
+
+removed {
+  source = "./nulls"
+
+  from = component.nulls
   providers = {
     null = provider.null.this
   }
