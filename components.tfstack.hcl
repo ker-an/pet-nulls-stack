@@ -61,3 +61,12 @@ component "nulls-duplicate" {
     null = provider.null.this
   }
 }
+
+removed {
+  source = "./nulls"
+
+  from = component.nulls-duplicate
+  providers = {
+    null = provider.null.this
+  }
+}
