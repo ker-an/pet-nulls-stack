@@ -19,11 +19,6 @@ resource "random_pet" "this" {
   length = 3
 }
 
-resource "random_pet" "pets" {
-  prefix = var.prefix
-  length = 2
-}
-
 output "name" {
   value = random_pet.this.id
 }
