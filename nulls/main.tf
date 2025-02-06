@@ -18,13 +18,21 @@ variable "instances" {
   type = number
 }
 
-# resource "null_resource" "this" {
-#   count = var.instances
+resource "null_resource" "this" {
+  count = var.instances
 
-#   triggers = {
-#     pet = var.pet
-#   }
-# }
+  triggers = {
+    pet = var.pet
+  }
+}
+
+resource "null_resource" "that" {
+  count = var.instances
+
+  triggers = {
+    pet = var.pet
+  }
+}
 
 output "ids" {
   value = [for n in null_resource.this: n.id]
