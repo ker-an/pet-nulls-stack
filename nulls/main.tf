@@ -26,14 +26,6 @@ resource "null_resource" "this" {
   }
 }
 
-resource "null_resource" "that" {
-  count = var.instances
-
-  triggers = {
-    pet = var.pet
-  }
-}
-
 output "ids" {
   value = [for n in null_resource.this: n.id]
 }

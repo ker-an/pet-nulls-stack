@@ -14,11 +14,11 @@ variable "prefix" {
   type = string
 }
 
-resource "random_pet" "this" {
+resource "random_pet" "pet" {
   prefix = var.prefix
   length = 3
 }
 
 output "name" {
-  value = random_pet.this.id
+  value = random_pet.pet.id
 }
