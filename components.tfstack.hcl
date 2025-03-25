@@ -53,3 +53,17 @@ component "nulls" {
     null = provider.null.this
   }
 }
+
+removed {
+  source = "./nulls"
+
+  for_each = tomap({
+    instance1 = 1
+    instance2 = 1
+  })
+
+  from = component.nulls[each.key]
+  providers = {
+    null = provider.null.this
+  }
+}
