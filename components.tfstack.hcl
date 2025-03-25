@@ -39,8 +39,8 @@ component "pet" {
 component "nulls" {
   source = "./nulls"
   for_each = tomap({
-    instance1 = 1
-    instance2 = 1
+    # instance1 = 1
+    # instance2 = 1
     instance3 = 1
   })
 
