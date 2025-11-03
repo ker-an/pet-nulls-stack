@@ -1,50 +1,31 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-variable "prefix" {
-  type = string
-}
-
-variable "instances" {
-  type = number
-}
-
-required_providers {
-  random = {
-    source  = "hashicorp/random"
-    version = "~> 3.5.1"
-  }
-
-  null = {
-    source  = "hashicorp/null"
-    version = "~> 3.2.2"
-  }
-}
-
-provider "random" "this" {}
-provider "null" "this" {}
-
-component "pet" {
-  source = "./pet"
-
+deployment "simple" {
   inputs = {
-    prefix = var.prefix
+    prefix           = "simple"
+    instances        = 1
   }
-
-  providers = {
-    random = provider.random.this
-  }
+  deployment_group = deployment_group.simple_group
 }
 
-component "nulls" {
-  source = "./nulls"
-
+deployment "complex" {
   inputs = {
-    pet       = component.pet.name
-    instances = var.instances
+    prefix           = "complex"
+    instances        = 3
   }
+  deployment_group = deployment_group.complex_group
+}
 
-  providers = {
-    null = provider.null.this
+deployment_group "simple_group" {
+  auto_approve_checks = [deployment_auto_approve.no_destroy]
+}
+
+deployment_group "complex_group" {}
+
+deployment_auto_approve "no_destroy" {
+  check {
+    condition = context.plan.changes.remove == 0
+    reason    = "Plan removes ${context.plan.changes.remove} resources."
   }
 }
