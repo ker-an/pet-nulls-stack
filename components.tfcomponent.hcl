@@ -33,10 +33,37 @@ component "pet" {
 
   providers = {
     random = provider.random.this
+    null = provider.null.this
   }
 }
 
 component "nulls" {
+  source = "./nulls"
+
+  inputs = {
+    pet       = component.pet.name
+    instances = var.instances
+  }
+
+  providers = {
+    null = provider.null.this
+  }
+}
+
+component "nils" {
+  source = "./nulls"
+
+  inputs = {
+    pet = component.pet.latename
+    instances = component.pet.number
+  }
+
+  providers = {
+    null = provider.null.this
+  }
+}
+
+component "nails" {
   source = "./nulls"
 
   inputs = {
