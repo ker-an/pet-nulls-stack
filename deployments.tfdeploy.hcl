@@ -22,6 +22,7 @@ deployment "other-1" {
     prefix           = "other-1"
     instances        = 1
   }
+  destroy = true
 }
 
 deployment "other-2" {
