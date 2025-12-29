@@ -78,6 +78,7 @@ deployment "other-9" {
     prefix           = "other-9"
     instances        = 1
   }
+  destroy = true
 }
 
 deployment_group "simple_group" {}
