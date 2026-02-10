@@ -81,6 +81,15 @@ deployment "other-9" {
   }
 }
 
-deployment_group "simple_group" {}
+deployment_group "simple_group" {
+  auto_approve_checks = [deployment_auto_approve.applyable]
+}
 
 deployment_group "complex_group" {}
+
+deployment_auto_approve "applyable" {
+  check {
+    condition = context.plan.applyable == true
+    reason    = "Always allow non-erroring applyable configurations."
+  }
+}
