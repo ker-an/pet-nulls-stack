@@ -15,7 +15,7 @@ deployment_group "default_group" {
 deployment_group "production_group" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   failure_tolerance = 4
-  eager_plan = "off"
+  eager_plan = "on"
 }
 
 deployment "simple" {
