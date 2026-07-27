@@ -25,7 +25,7 @@ provider "random" "this" {}
 provider "null" "this" {}
 
 component "pet" {
-  source = "github.com/ker-an/pet-module"
+  source = "git::https://github.com/ker-an/pet-module.git"
 
   inputs = {
     prefix = var.prefix
