@@ -31,7 +31,7 @@ deployment "simple" {
 deployment "complex" {
   inputs = {
     prefix           = "complex"
-    instances        = nil
+    instances        = 3
   }
 
   deployment_group = deployment_group.default_group
