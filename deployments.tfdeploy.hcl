@@ -10,11 +10,11 @@ deployment_auto_approve "no_destroy" {
 
 deployment_group "default_group" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
+  failure_tolerance = 2
 }
 
 deployment_group "production_group" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
-  failure_tolerance = 2
   eager_plan = "off"
 }
 
@@ -31,6 +31,15 @@ deployment "complex" {
   inputs = {
     prefix           = "complex"
     instances        = 3
+  }
+
+  deployment_group = deployment_group.default_group
+}
+
+deployment "advanced" {
+  inputs = {
+    prefix           = "advanced"
+    instances        = 4
   }
 
   deployment_group = deployment_group.default_group
