@@ -18,6 +18,15 @@ deployment_group "production_group" {
   eager_plan = "off"
 }
 
+deployment "basic" {
+  inputs = {
+    prefix           = "basic"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.default_group
+}
+
 deployment "simple" {
   inputs = {
     prefix           = "simple"
