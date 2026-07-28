@@ -10,6 +10,7 @@ deployment_auto_approve "no_destroy" {
 
 deployment_group "default_group" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
+  failure_tolerance = 0
 }
 
 deployment_group "production_group" {
@@ -30,7 +31,7 @@ deployment "simple" {
 deployment "complex" {
   inputs = {
     prefix           = "complex"
-    instances        = 3
+    instances        = nil
   }
 
   deployment_group = deployment_group.default_group
