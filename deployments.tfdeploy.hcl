@@ -13,7 +13,31 @@ deployment_group "default_group" {
   failure_tolerance = 0
 }
 
-deployment_group "basic_group" {
+deployment_group "basic_1_group" {
+  auto_approve_checks = []
+}
+
+deployment_group "basic_2_group" {
+  auto_approve_checks = []
+}
+
+deployment_group "basic_3_group" {
+  auto_approve_checks = []
+}
+
+deployment_group "basic_4_group" {
+  auto_approve_checks = []
+}
+
+deployment_group "basic_5_group" {
+  auto_approve_checks = []
+}
+
+deployment_group "basic_6_group" {
+  auto_approve_checks = []
+}
+
+deployment_group "basic_7_group" {
   auto_approve_checks = []
 }
 
@@ -22,13 +46,21 @@ deployment_group "production_group" {
   eager_plan = "off"
 }
 
+deployment_group "basic_8_group" {
+  auto_approve_checks = []
+}
+
+deployment_group "basic_9_group" {
+  auto_approve_checks = []
+}
+
 deployment "basic_1" {
   inputs = {
     prefix           = "basic_1"
     instances        = 1
   }
 
-  deployment_group = deployment_group.basic_group
+  deployment_group = deployment_group.basic_1_group
 }
 
 deployment "basic_2" {
@@ -37,7 +69,7 @@ deployment "basic_2" {
     instances        = 1
   }
 
-  deployment_group = deployment_group.basic_group
+  deployment_group = deployment_group.basic_2_group
 }
 
 deployment "basic_3" {
@@ -46,7 +78,7 @@ deployment "basic_3" {
     instances        = 1
   }
 
-  deployment_group = deployment_group.basic_group
+  deployment_group = deployment_group.basic_3_group
 }
 
 deployment "basic_4" {
@@ -55,7 +87,7 @@ deployment "basic_4" {
     instances        = 1
   }
 
-  deployment_group = deployment_group.basic_group
+  deployment_group = deployment_group.basic_4_group
 }
 
 deployment "basic_5" {
@@ -64,7 +96,7 @@ deployment "basic_5" {
     instances        = 1
   }
 
-  deployment_group = deployment_group.basic_group
+  deployment_group = deployment_group.basic_5_group
 }
 
 deployment "basic_6" {
@@ -73,7 +105,7 @@ deployment "basic_6" {
     instances        = 1
   }
 
-  deployment_group = deployment_group.basic_group
+  deployment_group = deployment_group.basic_6_group
 }
 
 deployment "basic_7" {
@@ -82,7 +114,25 @@ deployment "basic_7" {
     instances        = 1
   }
 
-  deployment_group = deployment_group.basic_group
+  deployment_group = deployment_group.basic_7_group
+}
+
+deployment "basic_8" {
+  inputs = {
+    prefix           = "basic_8"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_8_group
+}
+
+deployment "basic_9" {
+  inputs = {
+    prefix           = "basic_9"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_9_group
 }
 
 deployment "simple" {
