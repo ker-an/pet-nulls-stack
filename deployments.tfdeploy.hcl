@@ -13,18 +13,75 @@ deployment_group "default_group" {
   failure_tolerance = 0
 }
 
+deployment_group "basic_group" {
+  auto_approve_checks = []
+}
+
 deployment_group "production_group" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   eager_plan = "off"
 }
 
-deployment "basic" {
+deployment "basic_1" {
   inputs = {
-    prefix           = "basic"
+    prefix           = "basic_1"
     instances        = 1
   }
 
-  deployment_group = deployment_group.default_group
+  deployment_group = deployment_group.basic_group
+}
+
+deployment "basic_2" {
+  inputs = {
+    prefix           = "basic_2"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_group
+}
+
+deployment "basic_3" {
+  inputs = {
+    prefix           = "basic_3"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_group
+}
+
+deployment "basic_4" {
+  inputs = {
+    prefix           = "basic_4"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_group
+}
+
+deployment "basic_5" {
+  inputs = {
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_group
+}
+
+deployment "basic_6" {
+  inputs = {
+    prefix           = "basic_6"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_group
+}
+
+deployment "basic_7" {
+  inputs = {
+    prefix           = "basic_7"
+    instances        = 1
+  }
+
+  deployment_group = deployment_group.basic_group
 }
 
 deployment "simple" {
