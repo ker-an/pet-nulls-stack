@@ -60,6 +60,7 @@ deployment "basic_4" {
 
 deployment "basic_5" {
   inputs = {
+    prefix           = "basic_5"
     instances        = 1
   }
 
