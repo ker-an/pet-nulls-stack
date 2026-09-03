@@ -8,13 +8,20 @@ deployment_auto_approve "no_destroy" {
   }
 }
 
+deployment_auto_approve "intentional_warning" {
+  check {
+    condition = false
+    reason    = "Intentional warning for testing deployment checks."
+  }
+}
+
 deployment_group "default_group" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   failure_tolerance = 0
 }
 
 deployment_group "basic_1_group" {
-  auto_approve_checks = []
+  auto_approve_checks = [ deployment_auto_approve.intentional_warning, ]
 }
 
 deployment_group "basic_2_group" {
