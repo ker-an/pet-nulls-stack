@@ -18,6 +18,13 @@ variable "instances" {
   type = number
 }
 
+check "intentional_warning" {
+  assert {
+    condition     = false
+    error_message = "Intentional warning diagnostic for testing."
+  }
+}
+
 resource "null_resource" "this" {
   count = var.instances
 
