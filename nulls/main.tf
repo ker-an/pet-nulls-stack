@@ -27,5 +27,5 @@ resource "null_resource" "this" {
 }
 
 output "ids" {
-  value = [for n in null_resourc.this: n.id]
+  value = [for n in null_resource.this: n.id]
 }
