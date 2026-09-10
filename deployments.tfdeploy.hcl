@@ -55,6 +55,7 @@ deployment_group "basic_9_group" {
 }
 
 deployment "basic_1" {
+  migrate = true
   inputs = {
     prefix           = "basic_1"
     instances        = 1
